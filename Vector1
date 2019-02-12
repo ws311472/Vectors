@@ -28,7 +28,7 @@ void PopulateUserDetails(vector <User> *objUserPass)
 	}
 }
 
-void OutputUserGreen(vector <User> *objUserPass)
+void OutputUserDetails(vector <User> *objUserPass)
 {
 	for (int iCount = 1; iCount < objUserPass->size(); iCount++)
 	{
@@ -43,7 +43,11 @@ void OutputUserGreen(vector <User> *objUserPass)
 int main()
 {
 	vector<User>objUser(3);
-	objUser.push_back(User()); //Pushback a blank user to add to the end of the vector
+
+	PopulateUserDetails(&objUser); 
+	OutputUserDetails(&objUser); 
+
+	/*objUser.push_back(User()); //Pushback a blank user to add to the end of the vector
 
 	cout << "Please enter a name for User " << objUser.size() << ": " << endl;
 	cin >> objUser[objUser.size() - 1].sName;
@@ -69,7 +73,8 @@ int main()
 	cout << "User: " << objUser[objUser.size() - 1].sName << endl;
 	cout << "Age: " << objUser[objUser.size() - 1].iAge << endl;
 
-	_getch();
+	_getch(); */
+
 
 	return 0;
 }
