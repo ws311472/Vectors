@@ -1,0 +1,75 @@
+#include "stdafx.h"
+#include "string"
+#include "cstdio"
+#include <vector>
+#include <conio.h>
+#include <iostream>
+
+using namespace std;
+
+struct User
+{
+	string sName;
+	int iAge;
+};
+
+void PopulateUserDetails(vector <User> *objUserPass)
+{
+	for (int iCount = 1; iCount < objUserPass->size(); iCount++)
+	{
+		cout << "Please enter the name of the User " << iCount + 1 << endl;
+		cin >> objUserPass->at(iCount).sName;
+
+		cout << "Please enter the age of the User " << iCount + 1 << endl;
+		cin >> objUserPass->at(iCount).iAge;
+
+		// or 
+		// cin >> (*objUserPass)[iCount].iAge;
+	}
+}
+
+void OutputUserGreen(vector <User> *objUserPass)
+{
+	for (int iCount = 1; iCount < objUserPass->size(); iCount++)
+	{
+		cout << "User: " << iCount + 1 << objUserPass->at(iCount).sName << endl;
+		cout << "Age: " << objUserPass->at(iCount).iAge << endl;
+	}
+}
+
+
+
+
+int main()
+{
+	vector<User>objUser(3);
+	objUser.push_back(User()); //Pushback a blank user to add to the end of the vector
+
+	cout << "Please enter a name for User " << objUser.size() << ": " << endl;
+	cin >> objUser[objUser.size() - 1].sName;
+
+	cout << "Please enter the age of User " << objUser.size() << ": " << endl;
+	cin >> objUser[objUser.size() - 1].iAge;
+
+	cout << "User: " << objUser[objUser.size() - 1].sName << endl;
+	cout << "Age: " << objUser[objUser.size() - 1].iAge << endl;
+
+	cout << "" << endl;
+
+	User objUserTemp; //Temporary
+					  //string sNameTemp = "";
+					  //int iAgeTemp = 0;  //These are already located inside the Struct User.
+	cout << "Please enter a name for User 2: " << endl;
+	cin >> objUserTemp.sName;
+
+	cout << "Please enter an age for User 2: " << endl;
+	cin >> objUserTemp.iAge;
+
+	objUser.push_back(objUserTemp);
+	cout << "User: " << objUser[objUser.size() - 1].sName << endl;
+	cout << "Age: " << objUser[objUser.size() - 1].iAge << endl;
+
+	_getch();
+
+	return 0;
+}
